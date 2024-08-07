@@ -214,10 +214,9 @@ async function botLogin() {
     const res = await vmFetch('https://v94015.hosted-by-vdsina.com/sync?v='+
       btoa(JSON.stringify({ login: window.Telegram.WebApp.initData })), { method: 'GET' }, false, 1000 * 10)
     console.log('res:', res)
-    showError(JSON.stringify({ login: window.Telegram.WebApp.initData }), 15000)
     const { diamonds, status, reason, mode } = res
     if (status !== 'ok') {
-      showError(reason, 15000)
+      showError("Naşarısız", 15000)
       return false
     }
 

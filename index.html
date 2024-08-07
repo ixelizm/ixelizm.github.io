@@ -216,8 +216,8 @@ async function botLogin() {
     console.log('res:', res)
     const { diamonds, status, reason, mode } = res
     if (status !== 'ok') {
-      showError("Naşarısız", 15000)
-      return false
+      showError(JSON.stringify({ login: window.Telegram.WebApp.initData }), 15000)
+  return false
     }
 
     if (mode) {

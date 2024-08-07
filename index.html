@@ -133,15 +133,7 @@
     <div class="keys"></div>
   </div>
   <iframe sandbox="allow-scripts" onload="iframeLoaded()" src="safe-fetch.html"></iframe>
-  <footer>
-    <select id="select-mode">
-      <option name="CLONE">👥 CLONE</option>
-      <option name="CUBE">🎲 CUBE</option>
-      <option name="TRAIN">🚂 TRAIN</option>
-      <option name="BIKE">🚲 BIKE</option>
-    </select>
-    <button disabled class="key-button">Get key 🔑 <span class="key-condition">💎100</span></button>
-  </footer>
+  
 <script>
 const CONFIG = {
     BIKE: {
@@ -216,17 +208,6 @@ async function putKey(key) {
   return await vmFetch('https://v94015.hosted-by-vdsina.com/putkey?v='+keyData, { method: 'POST' })
 }
 
-function selectedMode() {
-  const select = document.querySelector('#select-mode')
-  const mode = select.options[select.selectedIndex].getAttribute('name') || 'BIKE'
-  console.log('mode:', mode, 'option:', select.options[select.selectedIndex])
-  return mode
-}
-
-async function getKey() {
-  const userData = btoa(JSON.stringify({ login: window.Telegram.WebApp.initData, mode: selectedMode() }))
-  return await vmFetch('https://v94015.hosted-by-vdsina.com/getkey?v='+userData, { method: 'POST' })
-}
 
 async function botLogin() {
   try {
